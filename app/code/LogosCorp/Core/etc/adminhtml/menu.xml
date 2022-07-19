@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="LogosCorp_Core::manager" title="Logoscorp" module="LogosCorp_Core" sortOrder="10" resource="LogosCorp_Core::manager"/>
+        <add id="LogosCorp_Core_custom_labels" title="Labels" module="LogosCorp_Core" sortOrder="20" parent="LogosCorp_Core::manager" action="adminhtml/system_config/edit/section/logoscorp_custom_labels" resource="LogosCorp_Core::view_configuration"/>
+        <add id="LogosCorp_Core_header" title="Header" module="LogosCorp_Core" sortOrder="290" parent="LogosCorp_Core::manager" action="adminhtml/system_config/edit/section/logoscorp_header" resource="LogosCorp_Core::view_configuration"/>
+        <add id="LogosCorp_Core_footer" title="Footer" module="LogosCorp_Core" sortOrder="300" parent="LogosCorp_Core::manager" action="adminhtml/system_config/edit/section/logoscorp_footer" resource="LogosCorp_Core::view_configuration"/>
+
+
+        <add id="LogosCorp_Core::view_configuration" 
+            title="Stock Configuration" module="LogosCorp_Core" 
+            sortOrder="30" parent="LogosCorp_Core::manager" 
+            action="adminhtml/system_config/edit/section/logoscorp_stock_configuration" 
+            resource="LogosCorp_Core::view_configuration"/>
+    </menu>
+</config>

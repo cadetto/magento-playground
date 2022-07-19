@@ -1,0 +1,19 @@
+bin/magento setup:install \
+--base-url=http://magento243.local \
+--db-host=mysql8_magento_243 \
+--db-name=magento_243 \
+--db-user=root \
+--db-password=root \
+--admin-firstname=admin \
+--admin-lastname=admin \
+--admin-email=admin@admin.com \
+--admin-user=admin \
+--admin-password=Logoscorp_1 \
+--language=en_US \
+--currency=USD \
+--timezone=America/Chicago \
+--backend-frontname=storeadmin \
+--use-rewrites=1 \
+--search-engine=elasticsearch7 \
+--elasticsearch-host=elasticsearch_magento_243 \
+--elasticsearch-port=9200

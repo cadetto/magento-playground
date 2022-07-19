@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="logoscorp" translate="label" sortOrder="1000">
+            <label>Logoscorp</label>
+        </tab>
+
+
+         <section id="logoscorp_custom_labels" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Labels</label>
+            <tab>logoscorp</tab>
+            <resource>Mstage_Importer::config</resource>
+            
+            <group id="general_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                 <comment>Note to developer: You must insert the helper LogosCorp\Core\Helper\CustomLabels and call function $helper->getLabels($_product), into the products grid (phtml) to display the labels.</comment>
+                
+                <field id="show_label_product_discount" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1"  canRestore="1">
+                    <label>Show label product discount</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="show_decimals_on_discount_percentage" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1"  canRestore="1">
+                    <label>Show decimals on discount percentage</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+
+                <field id="text_label" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1"  canRestore="1">
+                    <label>Label Text</label>
+                    <comment>If the field is empty, it shows the discount percentage label.</comment>
+                </field>
+
+                <field id="show_label_product_new" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1"  canRestore="1">
+                    <label>Show label product new</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+
+
+            </group>
+        </section>
+
+        <section id="logoscorp_header"  translate="label" showInDefault="1" sortOrder="290" showInWebsite="1" showInStore="1">
+            <label>Header</label>
+            <tab>logoscorp</tab>
+            <resource>Mstage_Importer::config</resource>
+            <group id="header_group" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Header Configuration</label>
+                <field id="enable_login_customer" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Login Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+             </group>
+        </section>
+
+        <section id="logoscorp_footer"  translate="label" showInDefault="1" sortOrder="300" showInWebsite="1" showInStore="1">
+            <label>Footer</label>
+            <tab>logoscorp</tab>
+            <resource>Mstage_Importer::config</resource>
+            <group id="footer_group" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Footer Configuration</label>
+                <field id="enable" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="breakpoint_accordion" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Breakpoint Accordion</label>
+                     <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                
+                <field id="first_column_no_accordion" translate="label" type="select"  sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>First Column No Accordion</label>
+                    <comment>Apply in mobile</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="block_title_column1" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Block Title - Column 1</label>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="block_content_column1" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Block Id - Column 1</label>
+                    <source_model>LogosCorp\Core\Model\System\Config\Source\BlockOptions</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="block_title_column2" translate="label" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Block Title - Column 2</label>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="block_content_column2" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Block Id - Column 2</label>
+                    <source_model>LogosCorp\Core\Model\System\Config\Source\BlockOptions</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="block_title_column3" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Block Title - Column 3</label>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="block_content_column3" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Block Id - Column 3</label>
+                    <source_model>LogosCorp\Core\Model\System\Config\Source\BlockOptions</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="block_title_column4" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Block Title - Column 4</label>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="block_content_column4" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Block Id - Column 4</label>
+                    <source_model>LogosCorp\Core\Model\System\Config\Source\BlockOptions</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="block_title_column5" translate="label" type="text" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Block Title - Column 5</label>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="block_content_column5" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Block Id - Column 5</label>
+                    <source_model>LogosCorp\Core\Model\System\Config\Source\BlockOptions</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="block_copyright" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Block Name - Copyright Area</label>
+                    <source_model>LogosCorp\Core\Model\System\Config\Source\BlockOptions</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+
+        <section id="logoscorp_stock_configuration" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1">
+            <label>Stock Configuration</label>
+            <tab>logoscorp</tab>
+            <resource>Mstage_Importer::config</resource>
+
+            <group id="stock_configurations" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1">
+                <label>Stock Configuration</label>
+                <field id="stock_configuration" translate="label" type="select" showInDefault="1" showInWebsite="1">
+                    <label>Multiple Sources for Stock</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+
+    </system>
+</config>

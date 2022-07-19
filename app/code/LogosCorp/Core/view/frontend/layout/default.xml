@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="footer_links" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true"/>
+        <referenceContainer name="copyright" remove="true"/>        
+
+        <referenceContainer name="header-wrapper">
+            <block ifconfig="logoscorp_header/header_group/enable_login_customer" class="LogosCorp\Core\Block\CustomerIconMenu" template="LogosCorp_Core::customerIconMenu.phtml" name="account.link" as="account.link" after="minicart">
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="footer">
+            <container name="footer.logoscorp" htmlTag="div" htmlClass="footer-core-logoscorp">
+                <block ifconfig="logoscorp_footer/footer_group/enable" class="LogosCorp\Core\Block\FooterHandler" name="logoscorp_footer" template="LogosCorp_Core::footer-container.phtml"/>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

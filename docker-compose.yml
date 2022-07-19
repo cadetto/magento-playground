@@ -1,0 +1,62 @@
+version: '3'
+services:
+    web:
+        image: webdevops/php-apache-dev:7.4
+        container_name: web_magento_243
+        restart: "no"
+        user: root
+        environment:
+          - WEB_ALIAS_DOMAIN=magento243.local
+          - WEB_DOCUMENT_ROOT=/app
+          - PHP_DATE_TIMEZONE=EST
+          - PHP_DISPLAY_ERRORS=1
+          - PHP_MEMORY_LIMIT=4G
+          - PHP_MAX_EXECUTION_TIME=18000
+          - PHP_POST_MAX_SIZE=500M
+          - PHP_UPLOAD_MAX_FILESIZE=1024M
+          - COMPOSER_VERSION=2
+          - PHP_DEBUGGER=none # comment this parameter to enable xDebug by default
+          - XDEBUG_START_WITH_REQUEST=yes
+          - XDEBUG_CLIENT_HOST=host.docker.internal
+          - XDEBUG_REMOTE_PORT=9000
+          - XDEBUG_REMOTE_CONNECT_BACK=0
+          - XDEBUG_REMOTE_AUTOSTART=1
+          # - POSTFIX_RELAYHOST=[mailhog_slabroom]:1025
+        volumes:
+          - ./:/app:cached
+        ports:
+          - "80:80"
+          - "443:443"
+          - "32823:22"          
+        links:
+          - mysql8
+          - elasticsearch
+          - redis
+    mysql8:
+        image: mysql:8
+        container_name: mysql8_magento_243
+        restart: "no"
+        ports:
+          - "3306:3306"
+        environment:
+          - MYSQL_ROOT_PASSWORD=root
+          - MYSQL_DATABASE=magento_243
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
+        container_name: elasticsearch_magento_243
+        environment: 
+          - "discovery.type=single-node"
+        restart: "no"
+        ports: 
+          - "9200:9200"
+          - "9300:9300"
+    redis:
+        image: redis
+        container_name: redis_magento_243
+        restart: "no"
+    mailhog:  # Emails can be viisualize at http://localhost:8025/
+        image: mailhog/mailhog
+        container_name: mailhog_magento_243
+        ports:
+          - 1025:1025
+          - 8025:8025

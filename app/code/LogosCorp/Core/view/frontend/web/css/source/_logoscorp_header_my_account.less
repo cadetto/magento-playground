@@ -1,0 +1,38 @@
+.my-account-dropdown{
+  float: right;
+
+  .mage-dropdown-dialog{
+    position: absolute;
+  }
+
+  .customer-icon-menu {
+    width: max-content;
+    ul{
+      margin: 0px;
+    padding: 0px;
+    }
+    li{
+      list-style: none;
+      a{
+        color: #000;
+      }
+    }
+    a,a:visited,a:hover{
+      text-decoration: none;
+    }
+  }
+
+  .user-icon::before{
+    font-size: 22px;
+    line-height: 1px;
+    color: #757575;
+    content: '\e627';
+    font-family: 'luma-icons';
+    font-style: normal;
+    vertical-align: middle;
+  }
+}
+
+.page-header > .header.content > #my-account-dropdow-popup {
+  display: none;
+}

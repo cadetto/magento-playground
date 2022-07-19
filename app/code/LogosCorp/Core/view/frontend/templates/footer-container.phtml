@@ -1,0 +1,67 @@
+<?php
+// $block -> LogosCorp\Block\FooterHandler
+$columnsHtml=[1=>'one',2=>'two',3=>'three',4=>'four',5=>'five'];
+$firstColumnNoAccordion=$block->getFirstColumnNoAccordion();
+?>
+
+<div id="accordion-footer" class="footer-mobile" >
+
+<?php
+foreach ($columnsHtml as $numberColumn => $nameColumn) {
+?>
+     <?php 
+    $columnTitleHtml=$block->getTitleColumn($numberColumn);
+    $columnContentHtml=$block->getContentBlock($numberColumn);
+    if(!empty($columnContentHtml)): ?>
+        <div class="column-footer column-<?=$nameColumn?>" <?=($firstColumnNoAccordion && $numberColumn=='1')?'':'data-role="collapsible"'?>>
+            <?php if(empty($columnTitleHtml) && $firstColumnNoAccordion && $numberColumn=='1'){ ?>
+            <?php }else{
+            ?> 
+                <div class="trigger-footer-column" <?=($firstColumnNoAccordion && $numberColumn=='1')?'':'data-role="trigger"'?>>
+                    <?= $columnTitleHtml ?>
+                </div>
+            <?php  
+            }?>
+            <div class="content-footer-column" <?=($firstColumnNoAccordion && $numberColumn=='1')?'':'data-role="content"'?>>
+                <?= $columnContentHtml ?>
+            </div>
+        </div>  
+    <?php endif; ?>
+<?php  
+}
+?>
+
+
+  </div>
+  <script>
+      require([
+          'jquery',
+          'accordion'], function ($) {
+
+            var breakointAccordionFooterMenu= <?=$block->getBreakointAccordion();?>;
+            $(document).ready(function() {
+                reportWindowSize();
+                window.onresize = reportWindowSize;
+            });
+
+            function reportWindowSize() {
+                var w = window.innerWidth;
+                if(w>=breakointAccordionFooterMenu){
+                    if($("#accordion-footer").hasClass('active')){
+                        $("#accordion-footer").accordion("destroy").removeClass('active').removeClass('footer-mobile').addClass('footer-desktop');
+                        $("#accordion-footer .content-footer-column").show();
+                    }else  $("#accordion-footer").removeClass('footer-mobile').addClass('footer-desktop');
+                }else if(w<breakointAccordionFooterMenu){
+                    if(!$("#accordion-footer").hasClass('active')){
+                        $("#accordion-footer").accordion({
+                        "active": [],"collapsible": true,"openedState": "active","multipleCollapsible": false,"animate": 200
+                        }).addClass('active').addClass('footer-mobile').removeClass('footer-desktop');
+                    }else  $("#accordion-footer").addClass('footer-mobile').removeClass('footer-desktop');
+                }
+            }
+      });
+  </script>
+
+<div class="copyright-container">
+  <?= $block->getCopyRightBlock(); ?>
+</div>

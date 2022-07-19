@@ -1,0 +1,12 @@
+<?php
+$discountLabel=$block->getDiscountLabel();
+?>
+
+<?php if($block->getShowLabelProductDiscount() && $discountLabel['apply']): ?>
+    <div class="label-discount"><span class=""><?=__($discountLabel['discount']) ?></span></div>
+<?php endif; ?>
+
+
+<?php if($block->getShowLabelProductNew() && $block->isProductNew()): ?>
+    <div class="label-new"><span class=""><?=__('New') ?></span></div>
+<?php endif; ?>

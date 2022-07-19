@@ -1,0 +1,13 @@
+<?php
+
+// Logoscorp Helper 
+$helperCustomAddToCart=$this->helper('LogosCorp\CustomAddToCart\Helper\CustomAddToCart');
+//custom-add-to-cart active no-hide no-show
+
+$helperLogoscorpStockProduct = $this->helper('LogosCorp\Core\Helper\StockProduct');
+
+$sources = $helperLogoscorpStockProduct->getSources();
+$qtyProductInStock=$helperLogoscorpStockProduct->getStock($sources, $block->getProduct()->getSku());
+
+?>
+<?= $helperCustomAddToCart->getHtml($block->getProduct()->getSku(),$qtyProductInStock,true,true) ?>

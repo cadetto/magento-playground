@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+     <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+        <default>
+            <logoscorp_custom_labels>
+                <product_view_settings>
+                    <enable_label_price_by_weight>0</enable_label_price_by_weight>
+                    <atribute_code_price_by_weight></atribute_code_price_by_weight>
+                    <text_label>Final cost by weight</text_label>
+                </product_view_settings>
+            </logoscorp_custom_labels>
+        </default>
+    </config>

@@ -1,0 +1,44 @@
+<?php
+/* Logoscorp\Core\Block\CustomerIconMenu $block */
+
+$_isCustomerLoggedIn = $block->getCustomerSessionStatus();
+
+?>
+
+
+<div data-block="my-account-dropdown" class="my-account-dropdown <?= ($_isCustomerLoggedIn ? 'loggedIn':''); ?>">
+    <a href="#" class="store__button" title="" data-trigger="my-account-dropdown-trigger">
+    <i class="user-icon"></i>
+    </a>
+</div>
+
+<div id="my-account-dropdow-popup" class="" data-mage-init='{
+        "dropdownDialog": {
+            "appendTo": "[data-block=my-account-dropdown]",
+            "triggerTarget":"[data-trigger=my-account-dropdown-trigger]",
+            "timeout": 2000,
+            "closeOnMouseLeave": false,
+            "closeOnClickOutside": true,
+            "closeOnEscape": true,
+            "autoOpen": false,
+            "triggerClass": "active",
+            "parentClass": "active",
+            "buttons": []
+            }
+        }'>
+    <div id="content-my-account-dropdown">
+      <div class="account-wrapper customer-icon-menu-container">
+        <div class="customer-icon-menu">
+          <ul>
+              <?php if(!$_isCustomerLoggedIn):?>
+                  <li><a href="/customer/account/login/"><?= __('Sign in') ?></a></li>
+                  <li><a href="/customer/account/create/"><?= __('Create an Account') ?></a></li>
+              <?php else: ?>
+                  <li><a href="/customer/account"><?= __('My Account') ?></a></li>
+                  <li><a href="/customer/account/logout/"><?= __('Sign Out') ?></a></li>
+              <?php endif;?>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>

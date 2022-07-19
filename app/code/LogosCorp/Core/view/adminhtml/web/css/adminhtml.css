@@ -1,0 +1,5 @@
+.admin__menu #menu-logoscorp-core-manager>a:before {
+    content: url(../images/logo_logoscorp.png);
+    filter: grayscale(100%);
+    margin-bottom: 8px;
+}
